@@ -33,7 +33,7 @@ public class ConnectionInitiation {
 		result[length - 7] = 0x00; // RDP_NEG_REQ::flags (0)
 		result[length - 6] = 0x08;
 		result[length - 5] = 0x00; // RDP_NEG_REQ::length (8 bytes)
-		result[length - 4] = 0x0b;
+		result[length - 4] = 0x03;
 		result[length - 3] = 0x00;
 		result[length - 2] = 0x00;
 		result[length - 1] = 0x00; // RDP_NEG_REQ: Requested protocols
