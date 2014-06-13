@@ -4,7 +4,7 @@ package com.binod.rdp.service;
 public class ConnectionInitiation {
 
 	public static int[] execute() {
-		String cookie = "Cookie: mstshash=" + Constant.username;
+		String cookie = "Cookie: mstshash=" + Default.username;
 		int length = 4 + 7 + cookie.length() + 2 + 8;
 		int[] result = new int[length];
 		result[0] = 0x03; // TPKT Header: TPKT version = 3

@@ -10,8 +10,9 @@ import com.binod.androidchat.R;
 import com.binod.rdp.application.AsyncReceiveMessage;
 import com.binod.rdp.application.SendToServer;
 import com.binod.rdp.service.BasicSettingExchange;
+import com.binod.rdp.service.ChannelConnection;
 import com.binod.rdp.service.ConnectionInitiation;
-import com.binod.rdp.service.Constant;
+import com.binod.rdp.service.Default;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -74,6 +75,13 @@ public class MainActivity extends Activity implements OnClickListener {
 				SendToServer.send(ConnectionInitiation.execute(), dos);
 				Thread.sleep(1000);
 				SendToServer.send(BasicSettingExchange.execute(), dos);
+				Thread.sleep(1000);
+				SendToServer.send(ChannelConnection._MCSErectDomainRequest(), dos);
+				Thread.sleep(1000);
+				SendToServer.send(ChannelConnection._MCSAttachUserConfirm(), dos);
+				Thread.sleep(1000);
+				SendToServer.send(ChannelConnection.channelJoinRequest(), dos);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -90,7 +98,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			try {
 				// server = new Socket(etIpAddress.getText().toString(),
 				// Integer.parseInt(etPort.getText().toString()));
-				server = new Socket(Constant.ip, Constant.port);
+				server = new Socket(Default.ip, Default.port);
 			} catch (NumberFormatException e1) {
 				e1.printStackTrace();
 			} catch (UnknownHostException e1) {

@@ -5,7 +5,7 @@ public class BasicSettingExchange {
 	public static int[] execute() {
 
 		char[] username = new char[16];
-		char[] temp = Constant.username.toCharArray();
+		char[] temp = Default.username.toCharArray();
 		for(int i=0; i<16; i++){
 			if(i < temp.length)
 				username[i] = temp[i];
